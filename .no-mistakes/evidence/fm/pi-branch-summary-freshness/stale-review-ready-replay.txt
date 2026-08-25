@@ -1,0 +1,15 @@
+USER-VISIBLE SCENARIO: review-ready outcome is recorded while the PR poll is armed.
+Recorded anchor: meta=1;poll=1;pr=https://github.com/acme/ledger-lab/pull/7
+
+DURABLE ROW BEFORE MERGE:
+{"seq":1,"epoch":1787618758,"task":"ledger-lab","wake":"","verdict":"captain","summary":"PR https://github.com/acme/ledger-lab/pull/7 checks green and is ready for review","silent":false,"anchor":"meta=1;poll=1;pr=https://github.com/acme/ledger-lab/pull/7"}
+
+DELIVERY AFTER MERGE/TEARDOWN:
+BRANCH OUTCOMES (handled by the supervision branch, not yet seen by this session):
+{"seq":1,"epoch":1787618758,"task":"ledger-lab","wake":"","verdict":"captain","summary":"PR https://github.com/acme/ledger-lab/pull/7 checks green and is ready for review","silent":false,"anchor":"meta=1;poll=1;pr=https://github.com/acme/ledger-lab/pull/7","superseded":true}
+
+DURABLE ROW AFTER DELIVERY (append-only record remains unchanged):
+{"seq":1,"epoch":1787618758,"task":"ledger-lab","wake":"","verdict":"captain","summary":"PR https://github.com/acme/ledger-lab/pull/7 checks green and is ready for review","silent":false,"anchor":"meta=1;poll=1;pr=https://github.com/acme/ledger-lab/pull/7"}
+
+UNREAD AFTER DELIVERY:
+(none)
