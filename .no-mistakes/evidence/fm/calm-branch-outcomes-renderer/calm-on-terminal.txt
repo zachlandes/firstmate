@@ -1,0 +1,44 @@
+
+ pi v0.84.3
+ escape interrupt · ctrl+c/ctrl+d clear/exit · / commands · ! bash · ctrl+o more
+ Press ctrl+o to show full startup help and loaded resources.
+
+ Pi can explain its own features and look up its docs. Ask it how to use or extend Pi.
+
+[Extensions]
+  fm-branch-supervision.ts, fm-calm-outcomes-e2e.ts, fm-calm.ts
+
+
+ Warning: tmux extended-keys is off. Modified Enter keys may not work. Add `set -g extended-keys on` to ~/.tmux.conf and restart tmux.
+
+
+ CALM_OUTCOMES_E2E_PROMPT
+
+
+ ⛵ task-12: PR https://example.com/pr/12 checks green, ready for review
+ ⛵ task-4: blocked: cannot reach the forge, credentials rejected
+
+ CALM_OUTCOMES_E2E_DONE
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<isolated-fixture>/project (main)
+7.7%/8.2k (auto)                                                                                                                                                       call-outcomes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
