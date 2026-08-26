@@ -1,0 +1,20 @@
+END-TO-END STALL DETECTOR DEMONSTRATION
+
+HEALTHY SUSTAINED-TURN CASE
+Foreign queue oldest row: seq=7, age>=600s; queue watermark before handoff: 7
+Mate actionable handoff output: check: mate handling turn started
+Persisted progress: state=committed, watermark=7
+Parent checkpoint output: checkpoint: no actionable wake within 2s
+Stall alert present: NO
+
+GENUINELY ABANDONED CASE
+The same aged row remains, but progress is malformed/unusable.
+Parent checkpoint output: check: secondmate wake-loop stalled: mate=mate row=7 age=603s
+Stall alert present: YES
+
+Queue row after both read-only checks:
+1787738875	7	check	routed	check: sustained queued row
+
+AWAY-DAEMON SUCCESSFUL DURABLE-HANDLING CASE
+Queued actionable row through the real durable queue; daemon remained live.
+Persisted progress after durable handling: state=committed, watermark=1
