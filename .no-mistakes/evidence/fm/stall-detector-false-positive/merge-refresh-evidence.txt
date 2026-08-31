@@ -1,0 +1,8 @@
+head=99ac28f42863e1b63beed3a871afa29aba1fcc2e
+parents=246a22a60636251e551a9d9df08261d081fd0944 4ad8cbaeafc109a17c1af3911867b7fe9e04e801
+subject=chore: merge upstream main into the stall-detector fix branch
+reviewed_head_ancestor=yes
+upstream_main_ancestor=yes
+resolved_configuration_entries:
+FM_PAUSE_RESURFACE_SECS=3600       # seconds before the watcher re-surfaces a declared external wait or verified captain-held transfer for a recheck, including a live busy pane past FM_BUSY_TURN_MAX_SECS; the away-mode daemon uses the same setting for a declared external wait or verified captain-held transfer, ageing its window against the crew's own latest status line rather than pane busy state
+FM_SECONDMATE_WAKE_STALL_SECS=60   # minimum age of the oldest valid foreign wake-queue row before an endpoint-recorded local secondmate produces one durable parent wake-loop-stall notification when the mate has no causal actionable-handoff progress covering that row; covering progress suppresses the notification at any row age, and zero or invalid values use 60

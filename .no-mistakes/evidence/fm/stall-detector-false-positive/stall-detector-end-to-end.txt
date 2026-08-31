@@ -1,0 +1,16 @@
+=== Delivered actionable wake ===
+check: sustained handoff
+=== Covered aged row (expected: no stall alert) ===
+<no stall alert>
+=== Malformed progress on abandoned row (expected: alert) ===
+check: secondmate wake-loop stalled: mate=mate row=7 age=704s
+=== Future-dated in-flight marker (expected: alert) ===
+check: secondmate wake-loop stalled: mate=mate row=14 age=510s
+=== Failed checkpoint forwarding (expected: alert remains) ===
+check: secondmate wake-loop stalled: mate=mate row=7 age=601s
+=== Direct watcher delivery ===
+check: rearm-resurface
+=== Direct delivery covers row (expected: no stall alert) ===
+<no stall alert>
+=== Away-daemon crash before durable handling (expected: alert remains) ===
+check: secondmate wake-loop stalled: mate=mate row=1 age=600s

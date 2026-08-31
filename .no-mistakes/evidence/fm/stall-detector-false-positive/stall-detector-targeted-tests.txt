@@ -1,0 +1,5 @@
+fm-watch: actionable wake progress serialization unavailable.
+fm-watch: actionable wake progress serialization unavailable.
+ok - foreign queue stalls distinguish committed handoffs from abandoned progress
+ok - checkpoint progress commits only after forwarding while direct delivery still commits
+ok - away daemon progress remains uncommitted until durable handling
