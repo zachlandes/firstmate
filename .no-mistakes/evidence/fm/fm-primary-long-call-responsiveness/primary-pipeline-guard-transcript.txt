@@ -1,0 +1,23 @@
+Firstmate primary command-policy executable check
+Target: d0f9701038aa759bda7a951365952bebc46bfa7d
+
+$ bin/fm-arm-pretool-check.sh --command no-mistakes\ axi\ run
+exit=0
+stdout: <empty>
+stderr: <empty>
+
+$ bin/fm-arm-pretool-check.sh --command no-mistakes\ axi\ respond\ --action\ fix
+exit=0
+stdout: <empty>
+stderr: <empty>
+
+$ bin/fm-arm-pretool-check.sh --command no-mistakes\ axi\ status
+exit=0
+stdout: <empty>
+stderr: <empty>
+
+$ bin/fm-arm-pretool-check.sh --command bin/fm-watch-arm.sh\ \&
+exit=2
+stdout: {"decision":"deny","reason":"[watcher-background] a protected watcher command cannot run in an asynchronous shell list or through nohup/disown"} 
+stderr: {"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny"},"systemMessage":"[watcher-background] a protected watcher command cannot run in an asynchronous shell list or through nohup/disown"} 
+

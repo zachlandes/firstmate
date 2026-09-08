@@ -1,0 +1,10 @@
+$ command -v no-mistakes
+/Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M1XHP0H7NPG8AR1MPQ28FX8M/bin/no-mistakes
+
+$ no-mistakes axi respond --action fix
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+exit=2 elapsed_seconds=0 upstream_started=no
+captain input accepted immediately after refusal
+
+$ no-mistakes axi status
+upstream received: <axi> <status>

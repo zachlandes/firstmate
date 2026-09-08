@@ -1,0 +1,20 @@
+Target commit: d0f9701038aa759bda7a951365952bebc46bfa7d
+Base tree:     774cce5eb2aa8577425436edebd2190c2d9094d1
+Target tree:   774cce5eb2aa8577425436edebd2190c2d9094d1
+
+Observable primary hook behavior (exit 2 means deny; exit 0 with empty output means allow):
+
+$ bin/fm-arm-pretool-check.sh --command no-mistakes\ axi\ run\ --intent\ test
+exit=0
+stdout=<empty>
+stderr=<empty>
+
+$ bin/fm-arm-pretool-check.sh --command no-mistakes\ axi\ respond\ --action\ fix
+exit=0
+stdout=<empty>
+stderr=<empty>
+
+$ bin/fm-arm-pretool-check.sh --command no-mistakes\ axi\ status
+exit=0
+stdout=<empty>
+stderr=<empty>
