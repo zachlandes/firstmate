@@ -1,0 +1,55 @@
+### Before convergence: secondmate home .env (mode 644)
+FMX_PAIRING_TOKEN=second-relay
+MAIL_HOST=imap.example.invalid
+
+### Before convergence: fm-dispatch-resolve run from the secondmate home
+dispatch-resolve: off (TYPESAFE_API_KEY absent from the environment and <tmp>/sm/.env)
+exit=0
+
+### Primary turns typed dispatch on: primary .env (mode 600, value redacted)
+FMX_PAIRING_TOKEN=primary-relay
+TYPESAFE_API_KEY=<REDACTED>
+
+### fm-config-push.sh (config push convergence point)
+config-push: <tmp>/home -> live secondmate homes
+secondmate sm (<tmp>/sm):
+  crew-dispatch.json: unchanged
+  crew-harness: pushed
+  backlog-backend: unchanged
+  backend: unchanged
+  herdr-presentation-spaces: unchanged
+  startup-memory-budget: unchanged
+  trace-context: unchanged - session-scoped
+  launch-env-allowlist: unchanged
+  claude-permission-mode: unchanged
+  data/captain-shared.md: unchanged
+  .env:TYPESAFE_API_KEY: pushed
+CONFIG_REREAD: secondmate sm: send failed: error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+exit=1
+
+### After push: secondmate home .env (mode 600, value redacted)
+FMX_PAIRING_TOKEN=second-relay
+MAIL_HOST=imap.example.invalid
+TYPESAFE_API_KEY=<REDACTED>
+
+### After push: fm-dispatch-resolve run from the secondmate home (typed dispatch now on; no rules file so it escalates without a network call)
+dispatch-resolve:
+  status: escalate
+  reason: no rules to match
+exit=0
+
+### Key rotate on the primary, then the bootstrap sweep (bootstrap convergence point)
+SECONDMATE_LIVENESS: secondmate sm: skipped: endpoint probe unreadable (backend=tmux)
+CONFIG_REREAD: secondmate sm: send failed: error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+FMX: X mode on - relay poll armed via state/x-watch.check.sh; 30s watcher cadence in config/x-mode.env
+exit=0
+
+### After bootstrap: secondmate .env (mode 600)
+FMX_PAIRING_TOKEN=second-relay
+MAIL_HOST=imap.example.invalid
+TYPESAFE_API_KEY=<REDACTED2>
+
+### Leak check: grep both key values across the whole fixture tree (state files, reports, logs) excluding the two .env files
+(no file outside the two .env files carries either value)
+
+### Note: 'CONFIG_REREAD: send failed ... NO_MISTAKES_GATE set' is the pipeline's own fleet-drive guard on this test machine (the nudge to the running secondmate is refused), not part of the change; convergence itself completed before it.
