@@ -1,0 +1,18 @@
+### scout-brief-kind-line
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 16   tokens: 671/40
+  rule: rule_4 (Read-only investigation or audit.)   confidence: 0.8
+  probabilities: rule_1=0.02 rule_2=0.05 rule_3=0.1 rule_4=0.82 default=0.01
+  note: rule matched
+  candidate: claude:sonnet  provider=claude  scope=all_models  remaining=79%  spendPriority=0.2  runway=through_reset  -> eligible
+  profile: --harness 'claude' --model 'sonnet'
+exit=0
+--- state sent to Jev:
+{
+  "task": {
+    "project": "demo",
+    "brief": "Brief kind: scout (report only)\n\n## Captain's intent\nThe pager export is slow, find out why.\n\n## Firstmate spec\nProfile the export path and report the hot spot.\n"
+  }
+}
+

@@ -1,0 +1,29 @@
+### ship-brief-task-sections
+$ fm-dispatch-resolve.sh port-task/brief.md --project demo
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 218   tokens: 671/40
+  rule: rule_1 (Large or hard engineering work that needs the strongest mode)   confidence: 0.88
+  probabilities: rule_1=0.88 rule_2=0.10 rule_3=0.01 rule_4=0.0 default=0.01
+  fallback: rule_2 (Implementation where the worker must design parts of the sol) probability 0.10 clears its floor 0.05; rule_1 probability 0.88 is below its floor 0.95
+  note: rule matched
+  candidate: claude:opus  provider=claude  scope=all_models  remaining=79%  spendPriority=0.2  runway=through_reset  -> eligible
+  profile: --harness 'claude' --model 'opus' --effort 'high'
+exit=0
+
+--- task text sent to Jev (request .state / question):
+Brief kind: ship, mode=no-mistakes
+
+## Captain's intent
+Port the macOS-only capture helper to Windows and add a Windows installer. This is a straightforward port of existing behaviour.
+
+## Firstmate spec
+Mirror bin/capture-mac.sh as capture-win.ps1.
+
+```text
+## Not a heading inside a fence
+```
+
+Never push to main. Never delete user data. Never skip the pipeline.
+
+

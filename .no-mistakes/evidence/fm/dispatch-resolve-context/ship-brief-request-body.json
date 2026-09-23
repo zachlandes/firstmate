@@ -1,0 +1,22 @@
+{
+  "model": "jev-latest",
+  "state": {
+    "task": {
+      "project": "demo",
+      "brief": "Brief kind: ship, mode=no-mistakes\n\n## Captain's intent\nPort the macOS-only capture helper to Windows and add a Windows installer. This is a straightforward port of existing behaviour.\n\n## Firstmate spec\nMirror bin/capture-mac.sh as capture-win.ps1.\n\n```text\n## Not a heading inside a fence\n```\n\nNever push to main. Never delete user data. Never skip the pipeline.\n"
+    }
+  },
+  "questions": {
+    "rule": {
+      "type": "choice",
+      "instructions": "Which ONE dispatch rule best fits `task` (read `task.brief` and `task.project`)? Each option is the rule's own matching condition; pick `default` when no rule's condition is met, including when a rule's own exemption text excludes this task.",
+      "criteria": {
+        "rule_1": "Large or hard engineering work that needs the strongest model, such as a multi-platform build or anything where a mistake is costly.",
+        "rule_2": "Implementation where the worker must design parts of the solution itself within an existing codebase.",
+        "rule_3": "A simple bug fix with a stated root cause.",
+        "rule_4": "Read-only investigation or audit.",
+        "default": "No listed rule applies to this task."
+      }
+    }
+  }
+}

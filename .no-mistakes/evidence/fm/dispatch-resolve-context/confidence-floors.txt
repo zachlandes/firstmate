@@ -1,0 +1,89 @@
+### no declared floors, confidence 0.55 -> ambiguous on global 0.6
+config: cfg-nofloor; Jev answer: {"type":"choice","choice":"rule_1","confidence":0.55,"probabilities":{"rule_1":0.70,"rule_2":0.25,"default":0.05}}
+dispatch-resolve:
+  status: ambiguous
+  model: jev-1.13.0   latency_ms: 12   tokens: 671/40
+  rule: rule_1 (Hard work.)   confidence: 0.55
+  probabilities: rule_1=0.70 rule_2=0.25 default=0.05
+  reason: confidence 0.55 below floor 0.6
+  candidate: claude:fable  provider=claude  scope=all_models  remaining=79%  spendPriority=0.2  runway=through_reset  -> eligible
+exit=0
+
+### no declared floors, confidence 0.65 (prob 0.50) -> clear, no runner-up logic
+config: cfg-nofloor; Jev answer: {"type":"choice","choice":"rule_1","confidence":0.65,"probabilities":{"rule_1":0.50,"rule_2":0.45,"default":0.05}}
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 11   tokens: 671/40
+  rule: rule_1 (Hard work.)   confidence: 0.65
+  probabilities: rule_1=0.50 rule_2=0.45 default=0.05
+  note: rule matched
+  candidate: claude:fable  provider=claude  scope=all_models  remaining=79%  spendPriority=0.2  runway=through_reset  -> eligible
+  profile: --harness 'claude' --model 'fable'
+exit=0
+
+### B (min 0.3) picked at probability 0.35 -> clear despite confidence 0.30
+config: cfg-ab; Jev answer: {"type":"choice","choice":"rule_2","confidence":0.30,"probabilities":{"rule_1":0.30,"rule_2":0.35,"default":0.35}}
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 11   tokens: 671/40
+  rule: rule_2 (B: routine work.)   confidence: 0.30
+  probabilities: rule_1=0.30 rule_2=0.35 default=0.35
+  note: rule matched
+  candidate: claude:sonnet  provider=claude  scope=all_models  remaining=79%  spendPriority=0.2  runway=through_reset  -> eligible
+  profile: --harness 'claude' --model 'sonnet'
+exit=0
+
+### A (min 0.9) picked at 0.65, B runner-up 0.30 -> falls to B
+config: cfg-ab; Jev answer: {"type":"choice","choice":"rule_1","confidence":0.80,"probabilities":{"rule_1":0.65,"rule_2":0.30,"default":0.05}}
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 12   tokens: 671/40
+  rule: rule_1 (A: hard work.)   confidence: 0.80
+  probabilities: rule_1=0.65 rule_2=0.30 default=0.05
+  fallback: rule_2 (B: routine work.) probability 0.30 clears its floor 0.3; rule_1 probability 0.65 is below its floor 0.9
+  note: rule matched
+  candidate: claude:sonnet  provider=claude  scope=all_models  remaining=79%  spendPriority=0.2  runway=through_reset  -> eligible
+  profile: --harness 'claude' --model 'sonnet'
+exit=0
+
+### A (min 0.9) picked at 0.70, B runner-up 0.25 -> ambiguous
+config: cfg-ab; Jev answer: {"type":"choice","choice":"rule_1","confidence":0.80,"probabilities":{"rule_1":0.70,"rule_2":0.25,"default":0.05}}
+dispatch-resolve:
+  status: ambiguous
+  model: jev-1.13.0   latency_ms: 12   tokens: 671/40
+  rule: rule_1 (A: hard work.)   confidence: 0.80
+  probabilities: rule_1=0.70 rule_2=0.25 default=0.05
+  reason: rule_1 probability 0.70 below its floor 0.9; no other option clears its own floor
+  candidate: claude:fable  provider=claude  scope=all_models  remaining=79%  spendPriority=0.2  runway=through_reset  -> eligible
+exit=0
+
+### adversarial: default at 0.30 (needs 0.6) does not steal fallback; B 0.30 wins
+config: cfg-ab; Jev answer: {"type":"choice","choice":"rule_1","confidence":0.80,"probabilities":{"rule_1":0.40,"rule_2":0.30,"default":0.30}}
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 12   tokens: 671/40
+  rule: rule_1 (A: hard work.)   confidence: 0.80
+  probabilities: rule_1=0.40 rule_2=0.30 default=0.30
+  fallback: rule_2 (B: routine work.) probability 0.30 clears its floor 0.3; rule_1 probability 0.40 is below its floor 0.9
+  note: rule matched
+  candidate: claude:sonnet  provider=claude  scope=all_models  remaining=79%  spendPriority=0.2  runway=through_reset  -> eligible
+  profile: --harness 'claude' --model 'sonnet'
+exit=0
+
+### A (min 0.9) picked at 0.95 -> clear
+config: cfg-ab; Jev answer: {"type":"choice","choice":"rule_1","confidence":0.95,"probabilities":{"rule_1":0.95,"rule_2":0.04,"default":0.01}}
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 13   tokens: 671/40
+  rule: rule_1 (A: hard work.)   confidence: 0.95
+  probabilities: rule_1=0.95 rule_2=0.04 default=0.01
+  note: rule matched
+  candidate: claude:fable  provider=claude  scope=all_models  remaining=79%  spendPriority=0.2  runway=through_reset  -> eligible
+  profile: --harness 'claude' --model 'fable'
+exit=0
+
+### invalid min_confidence 1.5 -> config error exit 2
+config: cfg-bad; Jev answer: {"type":"choice","choice":"rule_1","confidence":0.95,"probabilities":{"rule_1":0.95}}
+error: malformed rules file: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/tmp.FTPipnRjDF/cfg-bad/crew-dispatch.json - min_confidence must be a number from 0 through 1 when present
+exit=2
+
