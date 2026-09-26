@@ -1,0 +1,26 @@
+$ PATH=A/bin:B/bin:<system PATH> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+$ PATH=B/bin:A/bin:<system PATH> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+$ PATH=A/bin:B/bin:A/bin:<system PATH> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+$ PATH=B/bin:A/bin:B/bin:A/bin:<system PATH> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+$ PATH=A/bin:A/bin:<system PATH> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+$ PATH=A/bin:B/bin:A/bin:<system PATH> no-mistakes axi status
+error: repo not initialized (run 'no-mistakes init' first)
+help[1]: Run `no-mistakes init` to set up the gate in this repository
+[exit 1]
+$ PATH=A/bin:B/bin:A/bin:<system PATH> no-mistakes axi respond --action fix
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+[exit 2]
+$ PATH=A/bin:B/bin:/usr/bin:/bin (no upstream) no-mistakes --version
+error: no upstream no-mistakes executable found on PATH
+[exit 127]
+(A = /Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin, B = /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-copy2.qtUmun/bin, a second Firstmate checkout's bin/no-mistakes copy; upstream = /Users/zacharylandes/.local/bin/no-mistakes; commit ab0ecdc)

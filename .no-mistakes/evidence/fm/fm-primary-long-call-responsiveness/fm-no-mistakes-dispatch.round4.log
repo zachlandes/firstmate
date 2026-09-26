@@ -1,0 +1,14 @@
+ok - primary axi respond is refused before upstream dispatch
+ok - primary axi run is refused before upstream dispatch
+ok - a caller-controlled marker does not authorize the primary checkout
+ok - a caller-controlled marker does not authorize a secondmate home
+ok - task markers authorize only the recorded linked worktree
+ok - task id and worktree alone do not authorize pipeline dispatch
+ok - stale worker incarnation does not retain pipeline ownership
+ok - current marked linked task worker retains axi respond ownership
+ok - worker ownership is read only from the task's delivered state directory
+ok - several Firstmate boundaries on PATH forward to upstream without looping
+ok - primary retains read-only axi status
+ok - primary retains explicit recovery commands
+
+All no-mistakes dispatch tests passed.

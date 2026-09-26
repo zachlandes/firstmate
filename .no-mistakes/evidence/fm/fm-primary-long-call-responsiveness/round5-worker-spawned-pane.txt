@@ -1,0 +1,20 @@
+# Round 5, commit b52ee58. Lab home /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.e9fV5b (FM_HOME, separate from the repo root, so the meta lives in $LAB/state). Worker spawned for real with: bin/fm-spawn.sh nmdemo <lab>/projects/nmdemo --scout --harness claude --backend tmux (lab tmux socket fm-lab)
+endpoint_task_id=nmdemo
+worktree=/Users/zacharylandes/.treehouse/nmdemo-1c3f79/1/nmdemo
+kind=scout
+worker_capability_hash=<present>
+
+# Captured from the worker's Claude pane (! bash mode). First probe ran with the lab tmux server's inherited PATH (no bin/ prepended, a setup miss) and resolved to upstream; second probe prepends this checkout's bin/ per README:
+! PATH=/Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin:$PATH bash /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.e9fV5b/probe.sh 2>&1 | grep -v '^ '  
+  ⎿  pwd=/Users/zacharylandes/.treehouse/nmdemo-1c3f79/1/nmdemo id=nmdemo caplen=32 statedir=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.e9fV5b/state                                 
+     resolves: /Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin/no-mistakes                                                                                      
+     [worker axi run --help exit 0]                                                                                                                                                                     
+     [worker axi respond --help exit 0]                                                                                                                           
+     REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker                                                                                                              
+     [stale capability exit 2]                                                                                                                                                                          
+     REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker                                                                                                             
+     [no state dir exit 2]                                                                                        
+     REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+     [valid markers from primary checkout exit 2]                                                                                                                                                   
+     no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z                                                                                                                                         
+     [--version exit 0]                                                                                                                                                                                 

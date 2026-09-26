@@ -1,0 +1,17 @@
+bash-5.3$ echo "$ command -v no-mistakes -> $(command -v no-mistakes)"; echo "$ no-mistakes axi respond --action fix   (primary checkout)"; no-mistakes axi respond --action fix; echo "[exit $?]"; echo "$ no-mistakes axi run --intent x"; no-mistakes axi run --intent x; echo "[exit $?]"; echo "$ FM_TASK_ID=nmdemo FM_TASK_CAPABILITY=<guess> FM_TASK_STATE_DIR=$FM_HOME/state no-mistakes axi run   (spoofed from primary)"; FM_TASK_ID=nmdemo FM_TASK_CAPABILITY=0123456789abcdef0123456789abcdef FM_TASK_STATE_DIR=$FM_HOME/state no-mistakes axi run --intent x; echo "[exit $?]"; echo "$ no-mistakes axi status   (read-only, forwarded)"; no-mistakes axi status 2>&1 | head -3
+$ command -v no-mistakes -> /Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin/no-mistakes
+$ no-mistakes axi respond --action fix   (primary checkout)
+echo '$ PATH=A/bin:B/bin:... no-mistakes --version'; to env PATH=/Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin:/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-copy2.0tPZaX/bin:$PATH no-mistakes --version; echo "[exit $?]"; echo '$ PATH=B/bin:A/bin:... no-mistakes --version'; to env PATH=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-copy2.0tPZaX/bin:/Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin:$PATH no-mistakes --version; echo "[exit $?]"
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+[exit 2]
+$ no-mistakes axi run --intent x
+REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+[exit 2]
+$ FM_TASK_ID=nmdemo FM_TASK_CAPABILITY=<guess> FM_TASK_STATE_DIR=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.mmMkYw/state no-mistakes axi run   (spoofed from primary)
+REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+[exit 2]
+$ no-mistakes axi status   (read-only, forwarded)
+error: repo not initialized (run 'no-mistakes init' first)
+help[1]: Run `no-mistakes init` to set up the gate in this repository
+bash-5.3$ echo '$ PATH=A/bin:B/bin:... no-mistakes --version'; to env PATH=/Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin:/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-copy2.0tPZaX/bin:$PATH no-mistakes --version; echo "[exit $?]"; echo '$ PATH=B/bin:A/bin:... no-mistakes --version'; to env PATH=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-copy2.0tPZaX/bin:/Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin:$PATH no-mistakes --version; echo "[exit $?]"
+$ PATH=A/bin:B/bin:... no-mistakes --version

@@ -1,0 +1,19 @@
+! bash -c 'export PATH=/Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin:$PATH; echo "pwd=$PWD id=$FM_TASK_ID caplen=${#FM_TASK_CAPABILITY}"; echo "resolves:
+  $(command -v no-mistakes)"; no-mistakes axi run --help >/dev/null; echo "[worker axi run --help exit $?]"; no-mistakes axi respond --help >/dev/null; echo "[worker axi respond --help exit $?]";
+  FM_TASK_CAPABILITY=00000000000000000000000000000000 no-mistakes axi respond --help >/dev/null; echo "[stale capability exit $?]"; env -u FM_TASK_STATE_DIR no-mistakes axi run --help >/dev/null;
+  echo "[no state dir exit $?]"; no-mistakes --version; echo "[--version exit $?]"'
+  ⎿  pwd=/Users/zacharylandes/.treehouse/nmdemo-8f9218/1/nmdemo id=nmdemo caplen=32
+     resolves: /Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin/no-mistakes
+     [worker axi run --help exit 0]
+     [worker axi respond --help exit 0]
+     REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+     [stale capability exit 2]
+     REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+     [no state dir exit 2]
+     no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+     [--version exit 0]
+# Lab home /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.luUGVH, commit ab0ecdc; worker spawned with: bin/fm-spawn.sh nmdemo <lab>/projects/nmdemo --scout --harness claude --backend tmux
+endpoint_task_id=nmdemo
+worktree=/Users/zacharylandes/.treehouse/nmdemo-8f9218/1/nmdemo
+kind=scout
+worker_capability_hash present: 1

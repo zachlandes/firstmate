@@ -1,0 +1,16 @@
+bash-5.3$ echo "$ command -v no-mistakes -> $(command -v no-mistakes)"; no-mistakes axi respond --action fix; echo "[respond exit $?]"; no-mistakes axi run --intent x; echo "[run exit $?]"; FM_TASK_ID
+=nmdemo FM_TASK_CAPABILITY=0123456789abcdef0123456789abcdef FM_TASK_STATE_DIR=$FM_HOME/state no-mistakes axi run --intent x; echo "[spoofed marker exit $?]"; (cd /Users/zacharylandes/.treehouse/nmdemo
+-8f9218/1/nmdemo && FM_TASK_ID=nmdemo FM_TASK_CAPABILITY=0123456789abcdef0123456789abcdef FM_TASK_STATE_DIR=$FM_HOME/state no-mistakes axi respond --action fix; echo "[spoofed marker in worker worktre
+e exit $?]"); no-mistakes axi status 2>&1 | head -1; echo "[status forwarded]"
+$ command -v no-mistakes -> /Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin/no-mistakes
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+[respond exit 2]
+REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+[run exit 2]
+REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+[spoofed marker exit 2]
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+[spoofed marker in worker worktree exit 2]
+error: repo not initialized (run 'no-mistakes init' first)
+[status forwarded]
+bash-5.3$

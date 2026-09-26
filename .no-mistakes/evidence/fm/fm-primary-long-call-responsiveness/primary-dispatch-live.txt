@@ -1,0 +1,34 @@
+$ export PATH="/Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin:$PATH"   # README primary setup; real upstream: /Users/zacharylandes/.local/bin/no-mistakes
+
+$ no-mistakes axi respond --action fix
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+[exit ]
+
+$ no-mistakes axi run --intent test
+REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+[exit ]
+
+$ no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit ]
+
+$ no-mistakes axi status
+error: repo not initialized (run 'no-mistakes init' first)
+help[1]: Run `no-mistakes init` to set up the gate in this repository
+[exit ]
+
+$ PATH=A/bin:B/bin:... no-mistakes --version   # two Firstmate checkouts on PATH
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+
+$ spoofed FM_TASK_ID=task-x no-mistakes axi respond --action fix   # primary checkout
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+[exit 2]
+--- exit codes (primary, README PATH)
+axi respond -> exit 2
+axi run -> exit 2
+--- axi status forwarded to real upstream in this repo:
+error: repo not initialized (run 'no-mistakes init' first)
+help[1]: Run `no-mistakes init` to set up the gate in this repository

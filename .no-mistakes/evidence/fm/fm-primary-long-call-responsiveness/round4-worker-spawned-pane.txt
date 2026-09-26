@@ -1,0 +1,27 @@
+# Round 4, commit ab0ecdc. Lab home /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.V8an64; worker spawned for real with: bin/fm-spawn.sh nmdemo <lab>/projects/nmdemo --scout --harness claude --backend tmux (lab tmux socket fm-lab)
+endpoint_task_id=nmdemo
+worktree=/Users/zacharylandes/.treehouse/nmdemo-f946c4/1/nmdemo
+kind=scout
+worker_capability_hash=<present>
+
+# Captured from the worker's Claude pane (! bash mode):
+! bash /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.V8an64/probe.sh
+  ⎿  pwd=/Users/zacharylandes/.treehouse/nmdemo-f946c4/1/nmdemo id=nmdemo caplen=32 statedir=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.V8an64/state
+     resolves: /Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin/no-mistakes
+     [worker axi run --help exit 0]
+     [worker axi respond --help exit 0]
+     REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+     [stale capability exit 2]
+     REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+     [no state dir exit 2]
+     REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+     [valid markers from primary checkout exit 2]
+     no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+     [--version exit 0]
+⏺ You ran probe.sh from the worktree, and the results look like what a dispatch-boundary check should produce:
+  - Worker calls allowed: axi run --help and axi respond --help both exited 0.
+  - Other callers refused: with a stale capability, with no state dir, and from the primary checkout, axi run/respond were each refused with "worker-owned; send the request to the task worker"
+    (exit 2).
+  - Binary: it resolves to the no-mistakes build under .no-mistakes/worktrees/01004ff68993/.../bin, version v1.83.2 (f32bd74).
+  I'm still idle, as the spec asks, and haven't acted on the probe output.
+✻ Brewed for 4s · done 8:09 PM

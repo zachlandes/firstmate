@@ -1,0 +1,23 @@
+# Round 5, commit b52ee58. A=/Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin (this checkout), B=second Firstmate boundary copy in a temp dir, <sys>=/Users/zacharylandes/.local/bin:/usr/bin:/bin. perl alarm 15s: exit 142 would mean a loop.
+$ PATH=A:B:<sys> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+$ PATH=B:A:<sys> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+$ PATH=A:B:A:<sys> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+$ PATH=B:A:B:A:<sys> no-mistakes axi status (primary checkout, forwarded)
+error: repo not initialized (run 'no-mistakes init' first)
+help[1]: Run `no-mistakes init` to set up the gate in this repository
+[exit 1]
+$ PATH=A:B:A:<sys> no-mistakes axi respond --action fix (primary checkout)
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+[exit 2]
+$ PATH=A:<sys> no-mistakes axi run (primary checkout)
+REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+[exit 2]
+$ PATH=A:B:/usr/bin:/bin (no upstream) no-mistakes --version
+error: no upstream no-mistakes executable found on PATH
+[exit 127]

@@ -1,0 +1,31 @@
+# Worker side: task-1 metadata lives in a secondmate home's state dir (/private/tmp/fm-nm-worker-01M3/secondmate-home/state), not under the Firstmate checkout on PATH
+# Boundary: /Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin/no-mistakes ; upstream: /Users/zacharylandes/.local/bin/no-mistakes
+
+$ cd wt-task-1; FM_TASK_ID=task-1 FM_TASK_CAPABILITY=<delivered> FM_TASK_STATE_DIR=<secondmate-home/state> no-mistakes axi run --help
+Triggers a pipeline run for the current branch and drives it. Without
+--yes it blocks until the first approval gate, CI-ready point, or final outcome and
+prints it. With --yes it auto-resolves eligible gates (fixing actionable
+
+$ same, axi respond --help
+Sends approve/fix/skip for the step currently awaiting approval, then
+blocks until the next gate, CI-ready decision point, or final outcome.
+
+$ same worker, stale capability (previous incarnation)
+REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+[exit 2]
+
+$ same worker, no FM_TASK_STATE_DIR delivered
+REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+[exit 2]
+
+$ valid markers but run from a different linked worktree (wt-other)
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+[exit 2]
+
+$ valid markers but from the primary checkout (proj)
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+[exit 2]
+
+$ symlinked meta is refused
+REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+[exit 2]

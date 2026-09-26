@@ -1,0 +1,53 @@
+FM_TASK_ID=nmdemo FM_TASK_STATE_DIR=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.mmMkYw/state cap_len=32
+/Users/zacharylandes/.local/bin/no-mistakes
+Triggers a pipeline run for the current branch and drives it. Without
+--yes it blocks until the first approval gate, CI-ready point, or final outcome and
+prints it. With --yes it auto-resolves eligible gates (fixing actionable
+[exit 0]
+Sends approve/fix/skip for the step currently awaiting approval, then
+blocks until the next gate, CI-ready decision point, or final outcome.
+--wait bounds this hold (default 8m) so an agent harness with a 10-minute
+tool cap gets a structured return instead of an unbounded hang. Elapsed wait
+is not a failed run: inspect with axi status and reattach. A slow live daemon
+is retried after a health probe rather than reported as I/O failure.
+Commit post-pipeline follow-up work on top of the existing branch so every pipeline fix commit remains present. Never abort-and-restart, reset, or replace the branch in a way that drops prior gate-fix commits.
+Usage:
+  no-mistakes axi respond [flags]
+Flags:
+      --action string         approve | fix | skip (required)
+      --add-finding string    JSON finding object to add and fix (with --action fix)
+      --findings string       comma-separated finding IDs to fix (with --action fix)
+  -h, --help                  help for respond
+      --instructions string   guidance applied to the selected findings (with --action fix)
+      --reason string         exception reason preserved with Test approval (with --action approve)
+      --step string           step to respond to (default: the step awaiting approval)
+      --wait duration         maximum time to block driving this run before returning so the caller can reattach (default 8m0s)
+  -y, --yes                   auto-resolve subsequent eligible gates until a decision point or outcome; protected-path and Test unvalidated-work refusals require an explicit response
+[stale-cap exit 0]
+bash-5.3$ clear; echo "pwd=$PWD"; echo "FM_TASK_ID=$FM_TASK_ID STATE=$FM_TASK_STATE_DIR cap_len=${#FM_TASK_CAPABILITY}"; command -v no-mistakes; echo "$PATH" | tr : "\n" | head -4
+pwd=/Users/zacharylandes/.treehouse/demo-a2fc03/1/demo
+FM_TASK_ID=nmdemo STATE=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.mmMkYw/state cap_len=32
+/Users/zacharylandes/.local/bin/no-mistakes
+/Users/zacharylandes/.local/state/fnm_multishells/41680_1790388703954/bin
+/opt/homebrew/opt/postgresql@17/bin
+/Users/zacharylandes/Downloads/google-cloud-sdk/bin
+/opt/homebrew/opt/python@3.10/bin
+bash-5.3$ clear; export PATH=/Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin:$PATH
+bash-5.3$ echo "$ command -v no-mistakes -> $(command -v no-mistakes)"; echo "$ grep worker_capability_hash $FM_TASK_STATE_DIR/$FM_TASK_ID.meta"; grep -c worker_capability_hash $FM_TASK_STATE_DIR/$FM_TASK_ID.meta; echo "$ no-mistakes axi run --help   (spawned markers)"; no-mistakes axi run --help | head -2; echo "[exit ${PIPESTATUS[0]}]"; echo "$ FM_TASK_CAPABILITY=<stale> no-mistakes axi respond --help"; FM_TASK_CAPABILITY=00000000000000000000000000000000 no-mistakes axi respond --help; echo "[exit $?]"; echo "$ (unset FM_TASK_STATE_DIR) no-mistakes axi run --help"; env -u FM_TASK_STATE_DIR no-mistakes axi run --help; echo "[exit $?]"; echo "$ no-mistakes --version"; no-mistakes --version; echo "[exit $?]"
+$ command -v no-mistakes -> /Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin/no-mistakes
+$ grep worker_capability_hash /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.mmMkYw/state/nmdemo.meta
+1
+$ no-mistakes axi run --help   (spawned markers)
+Triggers a pipeline run for the current branch and drives it. Without
+--yes it blocks until the first approval gate, CI-ready point, or final outcome and
+[exit 0]
+$ FM_TASK_CAPABILITY=<stale> no-mistakes axi respond --help
+REFUSED: no-mistakes axi respond is worker-owned; send the request to the task worker
+[exit 2]
+$ (unset FM_TASK_STATE_DIR) no-mistakes axi run --help
+REFUSED: no-mistakes axi run is worker-owned; send the request to the task worker
+[exit 2]
+$ no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+bash-5.3$ 

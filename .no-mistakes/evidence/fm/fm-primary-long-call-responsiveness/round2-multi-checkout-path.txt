@@ -1,0 +1,12 @@
+$ PATH=A/bin:B/bin:<system PATH> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+$ PATH=B/bin:A/bin:<system PATH> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+$ PATH=A/bin:B/bin:A/bin:<system PATH> no-mistakes --version
+[still running after 10s - killed; boundary copies exec each other]
+$ PATH=A/bin:A/bin:<system PATH> no-mistakes --version
+no-mistakes version v1.83.2 (f32bd74) 2026-09-25T07:59:33Z
+[exit 0]
+(A = /Users/zacharylandes/.no-mistakes/worktrees/01004ff68993/01M3DKFR18EZ2HSN75P5G9HHAZ/bin, B = /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-copy2.0tPZaX/bin, a second Firstmate checkout's bin/no-mistakes copy)
