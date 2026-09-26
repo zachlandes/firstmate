@@ -1,0 +1,37 @@
+=== S8 secondmate home: inherited list is enforced ===
+$ ls secondmate/config   # before push
+$ FM_HOME=primary fm-config-push.sh
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+config-push: $LAB_ROOT/primary -> live secondmate homes
+secondmate sm-lab (/private/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/fm-never-send.Q3tWww/secondmate):
+  crew-dispatch.json: pushed
+  dispatch-never-send: pushed
+  crew-harness: unchanged
+  backlog-backend: unchanged
+  backend: unchanged
+  herdr-presentation-spaces: unchanged
+  startup-memory-budget: unchanged
+  trace-context: unchanged - session-scoped
+  launch-env-allowlist: unchanged
+  claude-permission-mode: unchanged
+  lavish-axi-host: unchanged
+  data/captain-shared.md: unchanged
+CONFIG_REREAD: secondmate sm-lab: send failed: error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/Users/zacharylandes/.no-mistakes/repos/01004ff68993.git)
+exit=
+$ ls secondmate/config   # after push
+crew-dispatch.json
+dispatch-never-send
+$ diff primary/config/dispatch-never-send secondmate/config/dispatch-never-send
+(identical)
+$ FM_HOME=secondmate fm-dispatch-resolve.sh $LAB_ROOT/brief.md --project pager   # brief wraps 'Example Client\nLtd'
+exit=0
+--- stdout ---
+--- stderr ---
+dispatch-resolve: off (brief text matches $LAB_ROOT/secondmate/config/dispatch-never-send line 2; nothing sent)
+--- requests received by the local TypeSafe endpoint during this run: 0
+
+$ rm secondmate/config/dispatch-never-send && rerun   # control: same secondmate home without the inherited list
+exit=0
+  status: clear
+  profile: --harness 'cursor' --model 'cursor-grok-4.6-medium'
+--- requests received: 1

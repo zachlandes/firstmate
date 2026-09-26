@@ -1,0 +1,82 @@
+=== S1 no list: router sends as before ===
+$ FM_HOME=primary fm-dispatch-resolve.sh $LAB_ROOT/brief.md --project pager    # no never-send list
+exit=0
+--- stdout ---
+dispatch-resolve:
+  status: clear
+  model: jev-local-fixture   latency_ms: 24   tokens: 1/1
+  rule: rule_4 (A simple bug fix with a stated root cause.)   confidence: 0.93
+  probabilities: rule_1=0.01 rule_2=0.01 rule_3=0.02 rule_4=0.93 default=0.03
+  note: rule matched
+  note: 1 eligible candidate(s) unranked (kimi)
+  candidate: claude:sonnet  provider=claude  scope=all_models  remaining=79%  spendPriority=-0.4627  runway=projected_exhaustion  -> eligible
+  candidate: cursor:cursor-grok-4.6-medium  provider=cursor  scope=all_models  remaining=91%  spendPriority=0.7597  runway=through_reset  -> eligible
+  candidate: kimi:kimi-code/k3  provider=kimi  -> eligible, unranked: provider kimi unmeasured (unknown): disclosed uncertainty
+  profile: --harness 'cursor' --model 'cursor-grok-4.6-medium'
+--- stderr ---
+--- requests received by the local TypeSafe endpoint during this run: 1
+    sent state.task.brief: "## Captain's intent\nFix the off-by-one in the pager for the Acme-Ledger account 4417-2290: root cause is\nthe `<=` on line 40 of pager.sh, and the fix should reach Example Client\nLtd before\tthe release.\n\n## Firstmate spec\n- Keep the change small.\n"
+    sent state.project: "pager"
+
+=== S2 list without a matching value ===
+$ FM_HOME=primary fm-dispatch-resolve.sh $LAB_ROOT/brief.md --project pager    # list, no match
+exit=0
+--- stdout ---
+dispatch-resolve:
+  status: clear
+  model: jev-local-fixture   latency_ms: 20   tokens: 1/1
+  rule: rule_4 (A simple bug fix with a stated root cause.)   confidence: 0.93
+  probabilities: rule_1=0.01 rule_2=0.01 rule_3=0.02 rule_4=0.93 default=0.03
+  note: rule matched
+  note: 1 eligible candidate(s) unranked (kimi)
+  candidate: claude:sonnet  provider=claude  scope=all_models  remaining=79%  spendPriority=-0.4627  runway=projected_exhaustion  -> eligible
+  candidate: cursor:cursor-grok-4.6-medium  provider=cursor  scope=all_models  remaining=91%  spendPriority=0.7597  runway=through_reset  -> eligible
+  candidate: kimi:kimi-code/k3  provider=kimi  -> eligible, unranked: provider kimi unmeasured (unknown): disclosed uncertainty
+  profile: --harness 'cursor' --model 'cursor-grok-4.6-medium'
+--- stderr ---
+--- requests received by the local TypeSafe endpoint during this run: 1
+    sent state.task.brief: "## Captain's intent\nFix the off-by-one in the pager for the Acme-Ledger account 4417-2290: root cause is\nthe `<=` on line 40 of pager.sh, and the fix should reach Example Client\nLtd before\tthe release.\n\n## Firstmate spec\n- Keep the change small.\n"
+    sent state.project: "pager"
+
+=== S3 case-insensitive literal match ===
+# private values
+  acme-ledger  
+$ FM_HOME=primary fm-dispatch-resolve.sh $LAB_ROOT/brief.md --project pager    # listed acme-ledger
+exit=0
+--- stdout ---
+--- stderr ---
+dispatch-resolve: off (brief text matches $LAB_ROOT/primary/config/dispatch-never-send line 2; nothing sent)
+--- requests received by the local TypeSafe endpoint during this run: 0
+
+=== S4 multi-word value wrapped across a line break and a tab ===
+$ FM_HOME=primary fm-dispatch-resolve.sh $LAB_ROOT/brief.md --project pager    # listed wrapped phrase
+exit=0
+--- stdout ---
+--- stderr ---
+dispatch-resolve: off (brief text matches $LAB_ROOT/primary/config/dispatch-never-send line 1; nothing sent)
+--- requests received by the local TypeSafe endpoint during this run: 0
+
+=== S5 value only in the project name ===
+$ FM_HOME=primary fm-dispatch-resolve.sh $LAB_ROOT/brief.md --project Orion-Private    # listed project
+exit=0
+--- stdout ---
+--- stderr ---
+dispatch-resolve: off (brief text matches $LAB_ROOT/primary/config/dispatch-never-send line 1; nothing sent)
+--- requests received by the local TypeSafe endpoint during this run: 0
+
+=== S6 list path is a directory (fail closed) ===
+$ FM_HOME=primary fm-dispatch-resolve.sh $LAB_ROOT/brief.md --project pager    # unreadable list
+exit=0
+--- stdout ---
+--- stderr ---
+dispatch-resolve: off ($LAB_ROOT/primary/config/dispatch-never-send is not a readable regular file; nothing sent)
+--- requests received by the local TypeSafe endpoint during this run: 0
+
+=== S7 fallback parity: identical to the absent-key off path ===
+$ FM_HOME=primary fm-dispatch-resolve.sh $LAB_ROOT/brief.md --project pager    # no TYPESAFE_API_KEY
+exit=0
+--- stdout ---
+--- stderr ---
+dispatch-resolve: off (TYPESAFE_API_KEY absent from the environment and $LAB_ROOT/primary/.env)
+--- requests received by the local TypeSafe endpoint during this run: 0
+
