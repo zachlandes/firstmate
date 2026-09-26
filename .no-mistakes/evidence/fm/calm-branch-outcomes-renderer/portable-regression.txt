@@ -1,0 +1,1 @@
+ok - Calm collapses a branch-outcome read of complete store records to nothing and never swallows a failed read or output it does not recognize

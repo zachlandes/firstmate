@@ -1,0 +1,44 @@
+
+ pi v0.87.1
+ escape interrupt · ctrl+c/ctrl+d clear/exit · / commands · ! bash · ctrl+o more
+ Press ctrl+o to show full startup help and loaded resources.
+
+ Pi can explain its own features and look up its docs. Ask it how to use or extend Pi.
+
+[Extensions]
+  fm-branch-supervision.ts, fm-calm-outcomes-e2e.ts, fm-calm.ts
+
+
+ Warning: tmux extended-keys is off. Modified Enter keys may not work. Add `set -g extended-keys on` to ~/.tmux.conf and restart tmux.
+
+
+ CALM_OUTCOMES_E2E_PROMPT
+
+
+ ⛵ OUTCOME_V2|task-77|verdict=escalate|CALM_OUTCOMES_FUTURE_FORMAT   keeps  spacing
+
+ CALM_OUTCOMES_E2E_DONE
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+/private/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/fm-calm-branch-outcomes-live.cHg7OQ/project (main)
+28.2%/8.2k (auto)                                                                                                                                                      call-outcomes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

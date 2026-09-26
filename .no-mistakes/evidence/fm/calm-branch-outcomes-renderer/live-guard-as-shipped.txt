@@ -1,0 +1,4 @@
+ok - real Pi 0.87.1 keeps the upstream branch-outcome row and its raw records while Calm is off
+ok - real Pi 0.87.1 collapses a branch-outcome read of complete store records to nothing under Calm
+ok - real Pi 0.87.1 exports every branch-outcome record from a session where Calm collapsed that row on screen
+ok - real Pi 0.87.1 keeps a failed branch-outcome read visible under Calm instead of collapsing it to nothing
