@@ -1,0 +1,117 @@
+# Live run of bin/fm-dispatch-resolve.sh (this branch) in a disposable lab FM_HOME minted by bin/fm-lab-home.sh.
+# Real curl is redirected by CURL_HOME/.curlrc (connect-to) to a local HTTPS recorder standing in for api.typesafe.ai;
+# quota-axi serves a fixture snapshot. 'requests received' is what reached the Jev endpoint.
+# Brief (Captain's intent wraps 'Example Client' / 'Ltd' across a line and uses a tab before 'release'):
+#   # Task
+#   ## Captain's intent
+#   Fix the pager for Example Client
+#   Ltd before the	release.
+#   
+#   ## Firstmate spec
+#   - Root cause is the off-by-one on line 40 of pager.sh.
+
+$ FM_HOME=<lab> TYPESAFE_API_KEY=*** bin/fm-dispatch-resolve.sh brief.md --project pager   # S1 baseline: no list -> request sent to Jev, status clear
+--- dispatch-never-send:
+(absent)
+exit=0
+--- stdout:
+dispatch-resolve:
+  status: clear
+  model: jev-local-recorder   latency_ms: 11   tokens: 1/1
+  rule: rule_1 (A simple bug fix with a stated root cause.)   confidence: 0.92
+  probabilities: rule_1=0.92 default=0.08
+  note: rule matched
+  candidate: claude:sonnet  provider=claude  scope=all_models  remaining=80%  spendPriority=0.5  runway=through_reset  -> eligible
+  profile: --harness 'claude' --model 'sonnet' --effort 'high'
+--- stderr:
+--- requests received by the Jev endpoint: 1
+{
+  "project": "pager",
+  "brief": "## Captain's intent\nFix the pager for Example Client\nLtd before the\trelease.\n\n## Firstmate spec\n- Root cause is the off-by-one on line 40 of pager.sh.\n"
+}
+--- quota-axi calls: 1
+
+$ FM_HOME=<lab> TYPESAFE_API_KEY=*** bin/fm-dispatch-resolve.sh brief.md --project pager   # S2 list without a match -> still sent
+--- dispatch-never-send:
+-rw-r--r--@
+# private values$
+$
+Unlisted-Value$
+exit=0
+--- stdout:
+dispatch-resolve:
+  status: clear
+  model: jev-local-recorder   latency_ms: 11   tokens: 1/1
+  rule: rule_1 (A simple bug fix with a stated root cause.)   confidence: 0.92
+  probabilities: rule_1=0.92 default=0.08
+  note: rule matched
+  candidate: claude:sonnet  provider=claude  scope=all_models  remaining=80%  spendPriority=0.5  runway=through_reset  -> eligible
+  profile: --harness 'claude' --model 'sonnet' --effort 'high'
+--- stderr:
+--- requests received by the Jev endpoint: 1
+{
+  "project": "pager",
+  "brief": "## Captain's intent\nFix the pager for Example Client\nLtd before the\trelease.\n\n## Firstmate spec\n- Root cause is the off-by-one on line 40 of pager.sh.\n"
+}
+--- quota-axi calls: 1
+
+$ FM_HOME=<lab> TYPESAFE_API_KEY=*** bin/fm-dispatch-resolve.sh brief.md --project pager   # S3 wrapped multi-word match, case-insensitive -> withheld
+--- dispatch-never-send:
+-rw-r--r--@
+# Client names$
+example   client ltd$
+exit=0
+--- stdout:
+--- stderr:
+dispatch-resolve: off (brief text matches <lab>/config/dispatch-never-send line 2; nothing sent)
+--- requests received by the Jev endpoint: 0
+--- quota-axi calls: 0
+
+$ FM_HOME=<lab> TYPESAFE_API_KEY=*** bin/fm-dispatch-resolve.sh brief.md --project pager   # S4 tab-spaced match -> withheld
+--- dispatch-never-send:
+-rw-r--r--@
+Before The Release$
+exit=0
+--- stdout:
+--- stderr:
+dispatch-resolve: off (brief text matches <lab>/config/dispatch-never-send line 1; nothing sent)
+--- requests received by the Jev endpoint: 0
+--- quota-axi calls: 0
+
+$ FM_HOME=<lab> TYPESAFE_API_KEY=*** bin/fm-dispatch-resolve.sh brief.md --project Orion-Private   # S5 project-name match -> withheld
+--- dispatch-never-send:
+-rw-r--r--@
+orion-private$
+exit=0
+--- stdout:
+--- stderr:
+dispatch-resolve: off (brief text matches <lab>/config/dispatch-never-send line 1; nothing sent)
+--- requests received by the Jev endpoint: 0
+--- quota-axi calls: 0
+
+$ FM_HOME=<lab> TYPESAFE_API_KEY=*** bin/fm-dispatch-resolve.sh brief.md --project pager   # S6 list path is a directory -> withheld (fail closed)
+--- dispatch-never-send:
+drwxr-xr-x@
+exit=0
+--- stdout:
+--- stderr:
+dispatch-resolve: off (<lab>/config/dispatch-never-send is not a readable regular file; nothing sent)
+--- requests received by the Jev endpoint: 0
+--- quota-axi calls: 0
+
+$ FM_HOME=<lab> TYPESAFE_API_KEY=*** bin/fm-dispatch-resolve.sh brief.md --project pager   # S7 list path is a broken symlink -> withheld (fail closed)
+--- dispatch-never-send:
+lrwxr-xr-x@
+exit=0
+--- stdout:
+--- stderr:
+dispatch-resolve: off (<lab>/config/dispatch-never-send is not a readable regular file; nothing sent)
+--- requests received by the Jev endpoint: 0
+--- quota-axi calls: 0
+
+$ FM_HOME=<lab> bin/fm-dispatch-resolve.sh brief.md --project pager   # S8 reference: the existing key-absent off path (non-Jev intake)
+exit=0
+--- stdout:
+--- stderr:
+dispatch-resolve: off (TYPESAFE_API_KEY absent from the environment and <lab>/.env)
+

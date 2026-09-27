@@ -1,9 +1,9 @@
-=== S8 secondmate home: inherited list is enforced ===
-$ ls secondmate/config   # before push
-$ FM_HOME=primary fm-config-push.sh
+# S9: the primary lab home's config/dispatch-never-send reaches a secondmate lab home through the real bin/fm-config-push.sh,
+# and the router run with FM_HOME=<secondmate> withholds the request. Same local HTTPS recorder stands in for api.typesafe.ai.
+$ FM_HOME=<primary-lab> bin/fm-config-push.sh
 WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
-config-push: $LAB_ROOT/primary -> live secondmate homes
-secondmate sm-lab (/private/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/fm-never-send.Q3tWww/secondmate):
+config-push: <primary-lab> -> live secondmate homes
+secondmate sm1 (/private/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/fm-lab.9mXJiP-sm):
   crew-dispatch.json: pushed
   dispatch-never-send: pushed
   crew-harness: unchanged
@@ -16,22 +16,21 @@ secondmate sm-lab (/private/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/fm-n
   claude-permission-mode: unchanged
   lavish-axi-host: unchanged
   data/captain-shared.md: unchanged
-CONFIG_REREAD: secondmate sm-lab: send failed: error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/Users/zacharylandes/.no-mistakes/repos/01004ff68993.git)
-exit=
-$ ls secondmate/config   # after push
-crew-dispatch.json
-dispatch-never-send
-$ diff primary/config/dispatch-never-send secondmate/config/dispatch-never-send
-(identical)
-$ FM_HOME=secondmate fm-dispatch-resolve.sh $LAB_ROOT/brief.md --project pager   # brief wraps 'Example Client\nLtd'
-exit=0
---- stdout ---
---- stderr ---
-dispatch-resolve: off (brief text matches $LAB_ROOT/secondmate/config/dispatch-never-send line 2; nothing sent)
---- requests received by the local TypeSafe endpoint during this run: 0
+CONFIG_REREAD: secondmate sm1: send failed: error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+(the reread-nudge send failure is the gate refusing to drive a fleet pane from inside this test run; the config push itself completed)
 
-$ rm secondmate/config/dispatch-never-send && rerun   # control: same secondmate home without the inherited list
+$ cat <secondmate>/config/dispatch-never-send
+# Client names
+Example Client Ltd
+
+$ FM_HOME=<secondmate> TYPESAFE_API_KEY=*** bin/fm-dispatch-resolve.sh brief.md --project pager
 exit=0
+--- stdout:
+--- stderr:
+dispatch-resolve: off (brief text matches <secondmate>/config/dispatch-never-send line 2; nothing sent)
+--- requests received by the Jev endpoint: 0
+--- quota-axi calls: 0
+
+# Control: remove the inherited list in the secondmate home -> the same brief is sent
   status: clear
-  profile: --harness 'cursor' --model 'cursor-grok-4.6-medium'
---- requests received: 1
+--- requests received by the Jev endpoint: 1
