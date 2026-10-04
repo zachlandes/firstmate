@@ -1,0 +1,18 @@
+== test_main_only_close_after_handled_turn_restores_inherited_handling (BEFORE fix, base bin/fm-supervision-host.sh)
+not ok - inherited handling: the Stop hook must rewake main: firstmate watcher wake - one supervision event needs a handling turn now.
+signal: /private/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/fm-supervision-host.tEQ7TJ/hook-inherited-handling-restore/state/beta.status
+Run bin/fm-wake-drain.sh first, handle the wake, then run its exact WAKE_ACK_REQUIRED --ack-through command. Until that post-handling acknowledgement, interruption leaves the wake durable for idempotent re-handling. This Stop hook owns watcher continuity: when the handling turn ends, the next needed cycle arms automatically - do NOT run bin/fm-watch-arm.sh after an ordinary wake.
+pending:handling:48266.1791154322.sPabUO: expected exit 2, got 0
+rc=1
+== test_main_only_close_after_handled_turn_delivers_restore_failure (BEFORE fix, base bin/fm-supervision-host.sh)
+not ok - restore refusal must notify main rather than exit silently: expected exit 2, got 0
+rm: /private/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/fm-supervision-host.uPbN1M/hook-inherited-handling-refuse/state: Directory not empty
+rm: /private/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/fm-supervision-host.uPbN1M/hook-inherited-handling-refuse: Directory not empty
+rm: /private/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/fm-supervision-host.uPbN1M: Directory not empty
+rc=1
+== test_returned_driver_is_caught_attended (BEFORE fix, base bin/fm-supervision-host.sh)
+not ok - returned driver: missed the bounded lab stale threshold
+rc=1
+== test_returned_driver_is_caught_away (BEFORE fix, base bin/fm-supervision-host.sh)
+not ok - returned driver: missed the bounded lab stale threshold
+rc=1

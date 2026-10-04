@@ -1,0 +1,6 @@
+== test_returned_driver_is_caught_attended (BEFORE fix, uncontended rerun)
+ok - host+hook: a driver returning to an idle worker is stale-handled while attended
+rc=0
+== test_returned_driver_is_caught_away (BEFORE fix, uncontended rerun)
+ok - host+hook: a driver returning to an idle worker is stale-handled while away
+rc=0

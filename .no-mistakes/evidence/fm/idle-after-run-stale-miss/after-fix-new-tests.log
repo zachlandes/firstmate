@@ -1,0 +1,12 @@
+== test_main_only_close_after_handled_turn_restores_inherited_handling (AFTER fix, HEAD 4f2b6f1e)
+ok - host+hook: a main-only close after a handled turn restores inherited handling and rewakes main
+rc=0 secs=15
+== test_main_only_close_after_handled_turn_delivers_restore_failure (AFTER fix, HEAD 4f2b6f1e)
+ok - host+hook: a refused inherited handling restore delivers a failure instead of silent success
+rc=0 secs=13
+== test_returned_driver_is_caught_attended (AFTER fix, HEAD 4f2b6f1e)
+ok - host+hook: a driver returning to an idle worker is stale-handled while attended
+rc=0 secs=22
+== test_returned_driver_is_caught_away (AFTER fix, HEAD 4f2b6f1e)
+ok - host+hook: a driver returning to an idle worker is stale-handled while away
+rc=0 secs=19

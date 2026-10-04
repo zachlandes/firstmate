@@ -1,0 +1,5 @@
+ok - host+hook: a main-only close after a handled turn restores inherited handling and rewakes main
+ok - host+hook: a refused inherited handling restore delivers a failure instead of silent success
+ok - host+hook: a driver returning to an idle worker is stale-handled while attended
+ok - host+hook: a driver returning to an idle worker is stale-handled while away
+bash $S/after.sh  9.09s user 13.29s system 32% cpu 1:08.03 total
