@@ -1,0 +1,10 @@
+# declaration
+paused [at=1791764683] [wait-file=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job2 dir/summary.json] [wait-pid=97719]: waiting for my no-mistakes drive call to write its summary
+# inbox record
+schema=fm-task-inbox.v1
+at=2026-10-12T00:26:01Z
+--
+Your declared completion file appeared: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job2 dir/summary.json
+Read your job's output now and resume the task or handle its failure; do not keep waiting on this declaration.
+[2026-10-11T17:22:48-0700] local-wait notice: t1 001.msg ring=0
+[2026-10-11T17:26:03-0700] local-wait notice: t1 002.msg ring=0

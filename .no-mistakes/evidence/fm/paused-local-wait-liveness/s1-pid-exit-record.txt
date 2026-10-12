@@ -1,0 +1,11 @@
+# status line
+paused [at=1791764295] [wait-pid=91305] [wait-file=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job1/summary.json]: waiting for my background roster run to write summary.json
+# job SIGTERMed at 17:22:46
+# inbox record (handled by worker)
+schema=fm-task-inbox.v1
+at=2026-10-12T00:22:46Z
+--
+Your declared process 91305 exited. Its completion file has not appeared: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job1/summary.json
+Read your job's output now and resume the task or handle its failure; do not keep waiting on this declaration.
+# watcher triage log local-wait lines
+[2026-10-11T17:22:48-0700] local-wait notice: t1 001.msg ring=0

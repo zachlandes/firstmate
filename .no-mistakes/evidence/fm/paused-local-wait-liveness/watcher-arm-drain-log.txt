@@ -1,0 +1,87 @@
+=== 17:20:47 arm
+watcher: started pid=76299 (beacon fresh)
+check: rearm-resurface
+=== 17:20:49 arm exit rc=0
+drain| 1791764335	2	signal	t1.status	signal: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.status
+drain| WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 76299.1791764448.j4L9BN
+drain| wake annotation: latest wake-EVENT observed at drain, not current state: t1.status: paused [at=1791764295] [wait-pid=91305] [wait-file=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job1/summary.json]: waiting for my background roster run to write summary.json
+drain| WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+=== 17:20:57 arm
+watcher: started pid=84098 (beacon fresh)
+stale: lab:fm-t1
+=== 17:21:12 arm exit rc=0
+drain| 1791764472	3	stale	lab:fm-t1	stale: lab:fm-t1
+drain| WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 3 --recovery-generation 84098.1791764472.EdbD0T
+drain| WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+=== 17:21:18 arm
+watcher: started pid=3370 (beacon fresh)
+signal: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.status
+=== 17:25:18 arm exit rc=0
+drain| 1791764717	5	signal	t1.status	signal: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.status
+drain| WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 5 --recovery-generation 3370.1791764717.VjtjD6
+drain| wake annotation: latest wake-EVENT observed at drain, not current state: t1.status: paused [at=1791764683] [wait-file=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job2 dir/summary.json] [wait-pid=97719]: waiting for my no-mistakes drive call to write its summary
+drain| WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+=== 17:25:22 arm
+watcher: started pid=28503 (beacon fresh)
+stale: lab:fm-t1 (paused 40s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+=== 17:25:23 arm exit rc=0
+drain| 1791764723	6	stale	lab:fm-t1	stale: lab:fm-t1 (paused 40s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+drain| WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 6 --recovery-generation 28503.1791764723.LDZFMW
+drain| WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+=== 17:25:28 arm
+watcher: started pid=36297 (beacon fresh)
+signal: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.status
+=== 17:27:44 arm exit rc=0
+drain| 1791764864	8	signal	t1.status	signal: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.status
+drain| WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 8 --recovery-generation 36297.1791764863.yQX5K0
+drain| wake annotation: unread wake-EVENT since last drain, not current state: t1.status: paused [at=1791764832]: reason mentions [wait-pid=91305] after the colon
+drain| wake annotation: latest wake-EVENT observed at drain, not current state: t1.status: paused [at=1791764853] [wait-file=rel/done.json]: relative path is not allowed
+drain| WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+=== 17:27:50 arm
+watcher: started pid=70984 (beacon fresh)
+stale: lab:fm-t1 (paused 19s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+=== 17:27:52 arm exit rc=0
+drain| 1791764872	9	stale	lab:fm-t1	stale: lab:fm-t1 (paused 19s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+drain| WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 9 --recovery-generation 70984.1791764872.tPKXzT
+drain| WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+=== 17:27:57 arm
+watcher: started pid=77961 (beacon fresh)
+signal: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.status
+=== 17:28:30 arm exit rc=0
+drain| 1791764909	11	signal	t1.status	signal: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.status
+drain| WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 11 --recovery-generation 77961.1791764909.MxL3IG
+drain| wake annotation: unread wake-EVENT since last drain, not current state: t1.status: working [wait-pid=91305]: not a pause
+drain| wake annotation: latest wake-EVENT observed at drain, not current state: t1.status: paused [at=1791764893] [wait-pid=91305] [wait-pid=97719]: duplicate pid fields
+drain| WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+=== 17:28:35 arm
+watcher: started pid=11221 (beacon fresh)
+stale: lab:fm-t1 (paused 23s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+=== 17:28:37 arm exit rc=0
+=== BASELINE (base commit e0d95ac7)
+=== 17:28:48 arm
+watcher: started pid=20356 (beacon fresh)
+signal: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.status
+=== 17:29:21 arm exit rc=0
+drain| 1791764916	12	stale	lab:fm-t1	stale: lab:fm-t1 (paused 23s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+drain| 1791764960	14	signal	t1.status	signal: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.status
+drain| WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 14 --recovery-generation 11221.1791764916.u3assN
+drain| wake annotation: latest wake-EVENT observed at drain, not current state: t1.status: paused [at=1791764928] [wait-pid=19573] [wait-file=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job3/summary.json]: base-commit baseline, waiting for my job3
+drain| WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+=== 17:29:26 arm
+watcher: started pid=63591 (beacon fresh)
+stale: lab:fm-t1 (paused 40s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+=== 17:29:29 arm exit rc=0
+drain| 1791764968	15	stale	lab:fm-t1	stale: lab:fm-t1 (paused 40s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+drain| WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 15 --recovery-generation 63591.1791764968.KRwQjT
+drain| WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+=== 17:29:34 arm
+watcher: started pid=69904 (beacon fresh)
+/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T/fm-lab.RTWpAH/base/bin/fm-wake-lib.sh: line 43: 45640 Hangup: 1                  sleep "$POLL"
+=== FIXED (target commit)
+=== 17:31:15 arm
+watcher: started pid=47753 (beacon fresh)
+check: rearm-resurface
+=== 17:31:16 arm exit rc=0
+drain| WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 0 --recovery-generation 47753.1791765076.IXiSQL
+=== 17:31:20 arm
+watcher: started pid=55261 (beacon fresh)

@@ -1,0 +1,67 @@
+[2026-10-11T17:21:20-0700] absorbed stale (paused, awaiting external, age 185s): lab:fm-t1
+[2026-10-11T17:21:27-0700] absorbed stale (paused, awaiting external, age 192s): lab:fm-t1
+[2026-10-11T17:21:32-0700] absorbed stale (paused, awaiting external, age 197s): lab:fm-t1
+[2026-10-11T17:21:38-0700] absorbed stale (paused, awaiting external, age 203s): lab:fm-t1
+[2026-10-11T17:21:45-0700] absorbed stale (paused, awaiting external, age 209s): lab:fm-t1
+[2026-10-11T17:21:51-0700] absorbed stale (paused, awaiting external, age 216s): lab:fm-t1
+[2026-10-11T17:21:57-0700] absorbed stale (paused, awaiting external, age 222s): lab:fm-t1
+[2026-10-11T17:22:03-0700] absorbed stale (paused, awaiting external, age 228s): lab:fm-t1
+[2026-10-11T17:22:10-0700] absorbed stale (paused, awaiting external, age 234s): lab:fm-t1
+[2026-10-11T17:22:16-0700] absorbed stale (paused, awaiting external, age 241s): lab:fm-t1
+[2026-10-11T17:22:22-0700] absorbed stale (paused, awaiting external, age 247s): lab:fm-t1
+[2026-10-11T17:22:28-0700] absorbed stale (paused, awaiting external, age 253s): lab:fm-t1
+[2026-10-11T17:22:34-0700] absorbed stale (paused, awaiting external, age 259s): lab:fm-t1
+[2026-10-11T17:22:41-0700] absorbed stale (paused, awaiting external, age 265s): lab:fm-t1
+[2026-10-11T17:22:48-0700] local-wait notice: t1 001.msg ring=0
+[2026-10-11T17:23:12-0700] absorbed non-terminal stale (declared wait or open captain call already re-surfaced this window): lab:fm-t1
+[2026-10-11T17:23:19-0700] absorbed stale (paused, awaiting external, age 304s): lab:fm-t1
+[2026-10-11T17:23:25-0700] absorbed stale (paused, awaiting external, age 310s): lab:fm-t1
+[2026-10-11T17:23:32-0700] absorbed stale (paused, awaiting external, age 316s): lab:fm-t1
+[2026-10-11T17:23:38-0700] absorbed stale (paused, awaiting external, age 323s): lab:fm-t1
+[2026-10-11T17:23:44-0700] absorbed stale (paused, awaiting external, age 329s): lab:fm-t1
+[2026-10-11T17:23:50-0700] absorbed stale (paused, awaiting external, age 335s): lab:fm-t1
+[2026-10-11T17:23:56-0700] absorbed stale (paused, awaiting external, age 341s): lab:fm-t1
+[2026-10-11T17:24:02-0700] absorbed stale (paused, awaiting external, age 347s): lab:fm-t1
+[2026-10-11T17:24:09-0700] absorbed stale (paused, awaiting external, age 354s): lab:fm-t1
+[2026-10-11T17:24:15-0700] absorbed stale (paused, awaiting external, age 360s): lab:fm-t1
+[2026-10-11T17:24:22-0700] absorbed stale (paused, awaiting external, age 367s): lab:fm-t1
+[2026-10-11T17:24:28-0700] absorbed stale (paused, awaiting external, age 373s): lab:fm-t1
+[2026-10-11T17:24:35-0700] absorbed stale (paused, awaiting external, age 380s): lab:fm-t1
+[2026-10-11T17:24:41-0700] absorbed stale (paused, awaiting external, age 386s): lab:fm-t1
+[2026-10-11T17:25:30-0700] absorbed stale (paused, awaiting external, age 47s): lab:fm-t1
+[2026-10-11T17:25:37-0700] absorbed stale (paused, awaiting external, age 54s): lab:fm-t1
+[2026-10-11T17:25:43-0700] absorbed stale (paused, awaiting external, age 60s): lab:fm-t1
+[2026-10-11T17:25:49-0700] absorbed stale (paused, awaiting external, age 66s): lab:fm-t1
+[2026-10-11T17:25:56-0700] absorbed stale (paused, awaiting external, age 72s): lab:fm-t1
+[2026-10-11T17:26:03-0700] local-wait notice: t1 002.msg ring=0
+[2026-10-11T17:26:22-0700] absorbed non-terminal stale (declared wait or open captain call already re-surfaced this window): lab:fm-t1
+[2026-10-11T17:26:28-0700] absorbed stale (paused, awaiting external, age 105s): lab:fm-t1
+[2026-10-11T17:26:34-0700] absorbed stale (paused, awaiting external, age 111s): lab:fm-t1
+[2026-10-11T17:26:40-0700] absorbed stale (paused, awaiting external, age 117s): lab:fm-t1
+[2026-10-11T17:26:47-0700] absorbed stale (paused, awaiting external, age 124s): lab:fm-t1
+[2026-10-11T17:26:54-0700] absorbed stale (paused, awaiting external, age 131s): lab:fm-t1
+[2026-10-11T17:27:01-0700] absorbed stale (paused, awaiting external, age 137s): lab:fm-t1
+[2026-10-11T17:27:07-0700] absorbed stale (paused, awaiting external, age 144s): lab:fm-t1
+[2026-10-11T17:29:36-0700] absorbed stale (paused, awaiting external, age 48s): lab:fm-t1
+[2026-10-11T17:29:36-0700] absorbed heartbeat (no captain-relevant change)
+[2026-10-11T17:29:43-0700] absorbed stale (paused, awaiting external, age 55s): lab:fm-t1
+[2026-10-11T17:29:49-0700] absorbed stale (paused, awaiting external, age 61s): lab:fm-t1
+[2026-10-11T17:29:54-0700] absorbed stale (paused, awaiting external, age 66s): lab:fm-t1
+[2026-10-11T17:30:00-0700] absorbed stale (paused, awaiting external, age 72s): lab:fm-t1
+[2026-10-11T17:30:06-0700] absorbed stale (paused, awaiting external, age 78s): lab:fm-t1
+[2026-10-11T17:30:11-0700] absorbed stale (paused, awaiting external, age 83s): lab:fm-t1
+[2026-10-11T17:30:17-0700] absorbed stale (paused, awaiting external, age 89s): lab:fm-t1
+[2026-10-11T17:30:23-0700] absorbed stale (paused, awaiting external, age 95s): lab:fm-t1
+[2026-10-11T17:30:29-0700] absorbed stale (paused, awaiting external, age 101s): lab:fm-t1
+[2026-10-11T17:30:35-0700] absorbed stale (paused, awaiting external, age 107s): lab:fm-t1
+[2026-10-11T17:30:42-0700] absorbed stale (paused, awaiting external, age 113s): lab:fm-t1
+[2026-10-11T17:30:48-0700] absorbed stale (paused, awaiting external, age 120s): lab:fm-t1
+[2026-10-11T17:30:53-0700] absorbed stale (paused, awaiting external, age 125s): lab:fm-t1
+[2026-10-11T17:30:59-0700] absorbed stale (paused, awaiting external, age 131s): lab:fm-t1
+[2026-10-11T17:31:05-0700] absorbed stale (paused, awaiting external, age 137s): lab:fm-t1
+[2026-10-11T17:31:11-0700] absorbed stale (paused, awaiting external, age 142s): lab:fm-t1
+[2026-10-11T17:31:23-0700] local-wait notice: t1 003.msg ring=0
+[2026-10-11T17:31:41-0700] absorbed non-terminal stale (declared wait or open captain call already re-surfaced this window): lab:fm-t1
+[2026-10-11T17:31:47-0700] absorbed stale (paused, awaiting external, age 179s): lab:fm-t1
+[2026-10-11T17:31:53-0700] absorbed stale (paused, awaiting external, age 185s): lab:fm-t1
+[2026-10-11T17:31:58-0700] absorbed stale (paused, awaiting external, age 190s): lab:fm-t1

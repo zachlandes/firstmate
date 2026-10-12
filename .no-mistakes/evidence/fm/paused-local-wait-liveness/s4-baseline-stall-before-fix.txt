@@ -1,0 +1,20 @@
+# BASELINE at base commit e0d95ac7: job3 SIGTERMed at 17:29:48
+paused [at=1791764928] [wait-pid=19573] [wait-file=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job3/summary.json]: base-commit baseline, waiting for my job3
+# inbox at 17:31:13:
+handled
+# watcher triage (still absorbing as a long-cadence pause):
+[2026-10-11T17:30:42-0700] absorbed stale (paused, awaiting external, age 113s): lab:fm-t1
+[2026-10-11T17:30:48-0700] absorbed stale (paused, awaiting external, age 120s): lab:fm-t1
+[2026-10-11T17:30:53-0700] absorbed stale (paused, awaiting external, age 125s): lab:fm-t1
+[2026-10-11T17:30:59-0700] absorbed stale (paused, awaiting external, age 131s): lab:fm-t1
+[2026-10-11T17:31:05-0700] absorbed stale (paused, awaiting external, age 137s): lab:fm-t1
+[2026-10-11T17:31:11-0700] absorbed stale (paused, awaiting external, age 142s): lab:fm-t1
+# fixed watcher started 17:31:15
+schema=fm-task-inbox.v1
+at=2026-10-12T00:31:22Z
+--
+Your declared process 19573 exited. Its completion file has not appeared: /var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job3/summary.json
+Read your job's output now and resume the task or handle its failure; do not keep waiting on this declaration.
+[2026-10-11T17:22:48-0700] local-wait notice: t1 001.msg ring=0
+[2026-10-11T17:26:03-0700] local-wait notice: t1 002.msg ring=0
+[2026-10-11T17:31:23-0700] local-wait notice: t1 003.msg ring=0

@@ -1,0 +1,7 @@
+paused [at=1791764295] [wait-pid=91305] [wait-file=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job1/summary.json]: waiting for my background roster run to write summary.json
+paused [at=1791764683] [wait-file=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job2 dir/summary.json] [wait-pid=97719]: waiting for my no-mistakes drive call to write its summary
+paused [at=1791764832]: reason mentions [wait-pid=91305] after the colon
+paused [at=1791764853] [wait-file=rel/done.json]: relative path is not allowed
+working [wait-pid=91305]: not a pause
+paused [at=1791764893] [wait-pid=91305] [wait-pid=97719]: duplicate pid fields
+paused [at=1791764928] [wait-pid=19573] [wait-file=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job3/summary.json]: base-commit baseline, waiting for my job3

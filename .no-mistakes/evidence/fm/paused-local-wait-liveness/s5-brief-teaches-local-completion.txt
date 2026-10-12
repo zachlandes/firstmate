@@ -1,0 +1,3 @@
+46:   For a job you background, include `[wait-file=<absolute completion path>]` and/or `[wait-pid=<positive pid>]` before the colon, alongside the timestamp, naming only a file or process you own on this host.
+118:Declare that wait using the brief's status-reporting rule before waiting on the backgrounded drive call, including its `[wait-pid=<pid>]` and/or `[wait-file=<absolute completion path>]` so monitoring can wake you when it returns.
+119:Backgrounding and ending your turn without those fields leaves nobody listening to the return, so the run can park at a gate until the long declared-wait recheck.

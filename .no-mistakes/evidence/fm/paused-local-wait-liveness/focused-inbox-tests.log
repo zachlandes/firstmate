@@ -1,0 +1,5 @@
+ok - watcher (attended): a completed file or exited pid wakes a paused worker once, even without the file
+ok - watcher (away): a completed file or exited pid wakes a paused worker once, even without the file
+ok - local wait: declaration identity survives ack, restart and endpoint replacement, not a fresh declaration
+ok - local wait: other declarations and hosts are untouched; unwritten notices are retried
+rc=0

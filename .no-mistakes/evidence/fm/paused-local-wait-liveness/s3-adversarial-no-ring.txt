@@ -1,0 +1,16 @@
+# job2 pid killed after its file notice, then malformed declarations appended:
+paused [at=1791764683] [wait-file=/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/data/job2 dir/summary.json] [wait-pid=97719]: waiting for my no-mistakes drive call to write its summary
+paused [at=1791764832]: reason mentions [wait-pid=91305] after the colon
+paused [at=1791764853] [wait-file=rel/done.json]: relative path is not allowed
+working [wait-pid=91305]: not a pause
+paused [at=1791764893] [wait-pid=91305] [wait-pid=97719]: duplicate pid fields
+# inbox after:
+/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.inbox:
+handled
+
+/var/folders/4n/_bv20k5d26dgrq1t5y4l69940000gn/T//fm-lab.RTWpAH/state/t1.inbox/handled:
+001.msg
+002.msg
+# all local-wait notices:
+[2026-10-11T17:22:48-0700] local-wait notice: t1 001.msg ring=0
+[2026-10-11T17:26:03-0700] local-wait notice: t1 002.msg ring=0
