@@ -1,0 +1,6 @@
+1..4
+ok - host: primary transcript activity, not park age, controls compaction
+ok - host: an idle engine conversation is compacted once across hosts
+ok - host: a conversation the next turn would not resume is not compacted
+ok - host: a compaction abandoned at the park boundary is not marked done
+FM_TEST_COMPLETE
